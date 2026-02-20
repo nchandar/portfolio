@@ -12,9 +12,23 @@
     <meta property="twitter:title" content="Niranjan Chandarraj | Portfolio" />
     <meta property="twitter:description" content="Full Stack Software Engineer with backend focus. AI systems, platform architecture, and terminal-first workflow." />
     <meta property="twitter:image" content="assets/img/profile.jpg" />
+    <meta name="color-scheme" content="light dark" />
     <title>Niranjan Chandarraj | Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
     <link rel="alternate icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <script>
+      (function () {
+        var themeKey = "portfolio-theme";
+        var storedTheme = null;
+        try {
+          storedTheme = localStorage.getItem(themeKey);
+        } catch (err) {}
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      })();
+    </script>
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,28 +46,49 @@
         <a href="#patents">Patents</a>
         <a href="#personal">Personal</a>
       </nav>
-      <a class="resume-btn" target="_blank" href="assets/img/Niranjan_Resume.pdf">Resume</a>
+      <div class="topbar-actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
     </header>
 
     <main class="page">
       <section class="hero" id="about">
         <span class="hero-tag">Full Stack Software Engineer · Backend Focused</span>
-        <p class="eyebrow">Bay Area, CA</p>
-        <h1>Niranjan Chandarraj</h1>
-        <p class="role">Software Engineering LMTS</p>
-        <p class="intro">
-          Staff-level engineer building scalable backend platforms, real-time systems, and AI-powered product experiences.
-          I focus on architecture, low-latency APIs, and execution across teams, and I am comfortable jumping into UI work when the product needs it.
-        </p>
-        <p class="intro">
-          I also enjoy terminal-first engineering with Neovim, tmux, and shell-driven workflows.
-        </p>
-        <div class="hero-actions">
-          <a class="btn-primary" target="_blank" href="assets/img/Niranjan_Resume.pdf">Download Resume</a>
-          <a class="btn-ghost" href="mailto:nniranc@gmail.com">nniranc@gmail.com</a>
-          <button class="copy-icon" type="button" data-copy-email="nniranc@gmail.com" aria-label="Copy email">
-            <i class="far fa-copy" aria-hidden="true"></i>
-          </button>
+        <div class="hero-layout">
+          <div class="hero-media">
+            <img
+              class="profile-photo"
+              src="assets/img/profile.jpg"
+              data-light-src="assets/img/profile-light.jpg"
+              data-dark-src="assets/img/profile-dark.jpg"
+              data-fallback-src="assets/img/profile.jpg"
+              width="360"
+              height="360"
+              loading="eager"
+              alt="Portrait of Niranjan Chandarraj"
+            />
+          </div>
+          <div class="hero-content">
+            <p class="eyebrow">Bay Area, CA</p>
+            <h1>Niranjan Chandarraj</h1>
+            <p class="role">Software Engineering LMTS</p>
+            <p class="intro">
+              Staff-level engineer building scalable backend platforms, real-time systems, and AI-powered product experiences.
+              I focus on architecture, low-latency APIs, and execution across teams, and I am comfortable jumping into UI work when the product needs it.
+            </p>
+            <p class="intro">
+              I also enjoy terminal-first engineering with Neovim, tmux, and shell-driven workflows.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" target="_blank" href="assets/img/Niranjan_Resume.pdf">Download Resume</a>
+              <a class="btn-ghost" href="mailto:nniranc@gmail.com">nniranc@gmail.com</a>
+              <button class="copy-icon" type="button" data-copy-email="nniranc@gmail.com" aria-label="Copy email">
+                <i class="far fa-copy" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
         </div>
         <div class="socials">
           <a target="_blank" href="https://www.linkedin.com/in/nniranc" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -68,12 +103,20 @@
         </div>
         <div class="cards">
           <article class="card">
-            <h3>Sales Coach</h3>
-            <p>Worked on backend architecture for an AI-powered coaching platform for sales executives.</p>
+            <h3>RAG Conversational Stack</h3>
+            <p>
+              Built the backend architecture for Sales Coach and delivered a RAG-driven conversational system using
+              Whisper (STT), BYOM (LLMs), and Amazon Polly (TTS) for interactive, voice-first coaching workflows.
+            </p>
           </article>
           <article class="card">
-            <h3>RAG Conversational Stack</h3>
-            <p>Built systems using Whisper (STT), BYOM (LLMs), and Amazon Polly (TTS) for interactive coaching workflows.</p>
+            <h3>Open Claw 🦞</h3>
+            <p>
+              Built a personal assistant tailored to my day-to-day workflow using OpenClaw and Codex for planning,
+              organization, and fun assistant-style tasks, focused on turning natural-language intent into practical
+              day-to-day support outside core coding work. Also built extensive skills and agent markdown workflows to
+              automate recurring daily tasks.
+            </p>
           </article>
           <article class="card">
             <h3>PRM Enablement</h3>
